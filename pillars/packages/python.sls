@@ -9,6 +9,6 @@ packages:
   snaps:
     wanted: {}
   gems:
-    wanted:
+    wanted: {}
   archives:
     wanted: {}

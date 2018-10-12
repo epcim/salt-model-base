@@ -11,12 +11,18 @@ packages:
       - wget
   pips:
     wanted:
-      pip
-      pipenv
-      invoke
+      - pip
+      - pipenv
+      - invoke
   snaps:
     wanted: {}
   gems:
     wanted: {}
   archives:
     wanted: {}
+
+# required for packages formula to work properly
+    required:
+      pkgs:
+        - wget
+        - git

@@ -21,14 +21,13 @@ use() {
 
 
 defaults() {
-  # env
-  SWD=${SALT_DIR:-$PWD/salt}
-  ENV=${SALT_ENV:-.} # should have an value like "env/base", "env/prod"
+  BASE_DIR=$(dirname $0)
+  ENV_PATH=${BASE_DIR}
 
   # salt roots
-  FORMULA_ROOT=${SALT_FORMULA_ROOT:-$SWD/$ENV/formulas}
-  STATE_ROOT=${SALT_STATE_ROOT:-$SWD/$ENV/states}
-  PILLAR_ROOT=${SALT_PILLAR_ROOT:-$SWD/$ENV/pillars}
+  FORMULA_ROOT=${SALT_FORMULA_ROOT:-$ENV_PATH/formulas}
+  STATE_ROOT=${SALT_STATE_ROOT:-$ENV_PATH/states}
+  PILLAR_ROOT=${SALT_PILLAR_ROOT:-$ENV_PATH/pillars}
 
   # env
   LC_ALL=en_US.UTF-8
@@ -324,12 +323,6 @@ ask () {
 if [[ "$BASH_SOURCE" == "$0" ]]; then
   set -eu -o pipefail
   defaults
-  if [[ ! -d $SWD ]]; then
-    echo "Set SALT_DIR env variable:"
-    echo "Salt directory $SWD does not exist"
-    exit 1
-  fi
-  [[ -e $SWD ]] || mkdir -p $SWD/orchestrate
   [[ -e $FORMULA_ROOT ]] || mkdir -p $FORMULA_ROOT
   [[ -e $PILLAR_ROOT ]] || mkdir -p $PILLAR_ROOT
   [[ -e $STATE_ROOT ]] || mkdir -p $STATE_ROOT

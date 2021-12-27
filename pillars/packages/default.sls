@@ -6,9 +6,12 @@ packages:
     wanted:
       - git
       - less
-      - bc
       - curl
       - wget
+      - jq
+      - nvim
+      - dig
+
   pips:
     wanted:
       - pip
@@ -22,7 +25,7 @@ packages:
     wanted: {}
 
 # required for packages formula to work properly
-    required:
-      pkgs:
-        - wget
-        - git
+    # required:
+    #   pkgs:
+    #     - wget
+    #     - git

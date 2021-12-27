@@ -1,12 +1,11 @@
-workspace:
+epcim:
   '*':
-    #NOTE, the bellow is a two-side knife - on one it prevents non-defined minions to be used
-    - minion.{{ grains.id }}
     - packages
     - users
   'G@os:Ubuntu':
     - users.salt
   #'G@os:MacOS':
+  #  - users.salt
 
 # Examples:
 #  'os:Ubuntu':

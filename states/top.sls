@@ -1,5 +1,5 @@
 
-pmichalec:
+base:
   '*':
     - packages
     - users

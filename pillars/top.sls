@@ -1,4 +1,4 @@
-epcim:
+base:
   '*':
     - packages
     - users
